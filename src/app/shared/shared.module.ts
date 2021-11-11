@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../share/header/header.component';
 import { SidebarComponent } from '../share/sidebar/sidebar.component';
 import { BreadcrumbsComponent } from '../share/breadcrumbs/breadcrumbs.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -18,7 +19,8 @@ import { BreadcrumbsComponent } from '../share/breadcrumbs/breadcrumbs.component
     HeaderComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ]
 })
 export class SharedModule { }
