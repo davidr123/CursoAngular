@@ -20,8 +20,10 @@
     "@angular/platform-browser-dynamic": "~11.2.13",
     "@angular/router": "~11.2.13",
     "chart.js": "^3.5.1",
+    "google-auth-library": "^7.10.3",
     "ng2-charts": "^3.0.0-rc.3",
     "rxjs": "~6.6.0",
+    "sweetalert2": "^11.2.1",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"
   },

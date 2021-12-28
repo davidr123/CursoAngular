@@ -1,5 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 
-#themecolors .selector{
+#themecolors .selector, .punto{
     cursor: pointer;
+}
+
+#google_btn{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-avatar{
+     height: 150px;
+     width: 150px;
 }
