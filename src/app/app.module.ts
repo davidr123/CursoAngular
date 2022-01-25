@@ -17,10 +17,14 @@ import { PagesRoutingModule } from './pages/pages.routing';
 
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
-NotpagefoundComponent
+NotpagefoundComponent,
+
+
 
    
  

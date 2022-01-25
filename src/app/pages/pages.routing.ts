@@ -10,6 +10,12 @@ import { RxjsComponent } from "./rxjs/rxjs.component";
 import { AuthGuard } from "../guards/auth.guard";
 import { PerfilComponent } from "./perfil/perfil.component";
 import { UsuariosComponent } from "./mantenimientos/usuarios/usuarios.component";
+import { HospitalesComponent } from "./mantenimientos/hospitales/hospitales.component";
+
+import { CommonModule } from "@angular/common";
+import { MedicosComponent } from "./mantenimientos/medicos/medicos.component";
+import { MedicoComponent } from "./mantenimientos/medicos/medico/medico.component";
+
 
 const routes: Routes= [
 
@@ -27,7 +33,11 @@ const routes: Routes= [
     {path:'perfil', component: PerfilComponent, data:{titulo:'Perfil de Usuarios'}},
 
     //mantenimientos
-    {path:'usuarios', component: UsuariosComponent, data:{titulo:'Usuarios de la Aplicacion'}}
+    {path:'usuarios', component: UsuariosComponent, data:{titulo:'Mantenimientos de Usuario'}},
+    {path:'hospitales', component: HospitalesComponent, data:{titulo:'Mantenimientos de Hospitales'}},
+    {path:'medicos', component: MedicosComponent, data:{titulo:'Mantenimientos de Medicos'}},
+    {path:'medico/:id', component: MedicoComponent, data:{titulo:'Mantenimientos de Medico'}}
+    
     ]},
       
 
@@ -35,7 +45,7 @@ const routes: Routes= [
 
 
 @NgModule({
-    imports: [RouterModule.forChild(routes)],
+    imports: [RouterModule.forChild(routes),  CommonModule],
     exports: [RouterModule]
 })
 export class PagesRoutingModule{}
