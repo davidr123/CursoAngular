@@ -40,6 +40,19 @@ public usuario: Usuario;
       'x-token':this.token
     }} 
    }
+
+   get admin(){
+
+    return this.usuario.role;
+   }
+
+
+   GuardarMenu(token:string, menu:string){
+
+    localStorage.setItem('token', token);
+    localStorage.setItem('menu', JSON.stringify(menu));
+
+   }
   
   GoogleInit(){
 
@@ -65,6 +78,8 @@ public usuario: Usuario;
   Logout(){
     const token= localStorage.removeItem('token');
 
+    //eliminar menu desde el localstorage
+localStorage.removeItem('menu');
     
     this.auth2.signOut().then( ()=> {
       this.ngZone.run(()=>{
@@ -97,7 +112,7 @@ public usuario: Usuario;
 
         this.usuario= new Usuario(nombre, email, img, google, role, uid);
 
-        localStorage.setItem('token', res.token);
+       this.GuardarMenu(res.token, res.menu);
 
         return true;
       }),
@@ -111,7 +126,7 @@ crearUsuario(formData: Usuario){
   return this.http.post(`${base_url}/usuarios`, formData)
   .pipe(
     tap((res:any)=>{
-      localStorage.setItem('token', res.token)
+    this.GuardarMenu(res.token, res.menu);
     })
   )
 
@@ -134,7 +149,7 @@ loginUser(formLogin: Login){
   return this.http.post(`${base_url}/login`, formLogin)
   .pipe(
     tap((res:any)=>{
-      localStorage.setItem('token', res.token);
+      this.GuardarMenu(res.token, res.menu);
     })
   )
 
@@ -144,7 +159,7 @@ loginGoogle(token){
   return this.http.post(`${base_url}/login/google`, {token})
   .pipe(
     tap((res:any)=>{
-      localStorage.setItem('token', res.token);
+      this.GuardarMenu(res.token, res.menu);
     })
   )
 

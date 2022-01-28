@@ -15,6 +15,8 @@ import { HospitalesComponent } from "./mantenimientos/hospitales/hospitales.comp
 import { CommonModule } from "@angular/common";
 import { MedicosComponent } from "./mantenimientos/medicos/medicos.component";
 import { MedicoComponent } from "./mantenimientos/medicos/medico/medico.component";
+import { BusquedaComponent } from "./busqueda/busqueda.component";
+import { AdminGuard } from "../guards/admin.guard";
 
 
 const routes: Routes= [
@@ -31,9 +33,10 @@ const routes: Routes= [
       {path:'promesas', component: PromesasComponent, data:{titulo:'Promesas'}},
       {path:'rxjs', component: RxjsComponent, data:{titulo:'RxJs'}},
     {path:'perfil', component: PerfilComponent, data:{titulo:'Perfil de Usuarios'}},
+    {path:'buscar/:termino', component: BusquedaComponent, data:{titulo:'Busquedas'}},
 
     //mantenimientos
-    {path:'usuarios', component: UsuariosComponent, data:{titulo:'Mantenimientos de Usuario'}},
+    {path:'usuarios', canActivate: [AdminGuard], component: UsuariosComponent, data:{titulo:'Mantenimientos de Usuario'}},
     {path:'hospitales', component: HospitalesComponent, data:{titulo:'Mantenimientos de Hospitales'}},
     {path:'medicos', component: MedicosComponent, data:{titulo:'Mantenimientos de Medicos'}},
     {path:'medico/:id', component: MedicoComponent, data:{titulo:'Mantenimientos de Medico'}}
